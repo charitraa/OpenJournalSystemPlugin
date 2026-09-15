@@ -9,9 +9,10 @@ are untouched.
 
 | Area | How |
 |---|---|
-| Header | Top bar with E-ISSN / P-ISSN and account menu; logo, journal name, tagline; OJS primary menu |
-| Homepage | Search hero, live statistics, latest articles, current issue, call for papers, subject areas, About the journal / About LBEF, journal information cards |
-| Footer | Logo, description, quick links, author links, contact, social links, OJS credit |
+| Header | Utility bar (E-ISSN / P-ISSN, account menu), logo + journal name + tagline, LBEF-blue navigation bar with search |
+| Homepage | Standard OJS flow: journal banner (summary, ISSN, counts, Make a Submission, current issue), call for papers notice, announcements, current issue table of contents, subject areas |
+| Sidebar | The blocks chosen in Settings > Website > Appearance (e.g. Make a Submission, Information) |
+| Footer | Logo, LBEF description, journal and author links, contact, social links, OJS credit |
 | Other pages | Restyled with CSS only (article, issue, archive, search, login, register, about) |
 
 Files:
@@ -22,11 +23,12 @@ lrjstm/
 ├── index.php / version.xml
 ├── locale/en/locale.po     all interface text (translatable)
 ├── styles/index.less       design (compiled with the Default theme's LESS)
-├── js/main.js              menu aria state + statistics count-up
+├── js/main.js              keeps the mobile menu button's aria state in sync
 ├── fonts/                  Inter + Source Serif 4 (self-hosted, SIL OFL)
 └── templates/frontend/
     ├── components/header.tpl
     ├── components/footer.tpl
+    ├── components/lrjstmJournalBanner.tpl
     ├── pages/indexJournal.tpl
     └── objects/issue_summary.tpl
 ```
@@ -42,13 +44,14 @@ Nothing about articles, issues or authors is hard-coded.
 | About the journal text | Settings > Journal > Masthead > Journal Summary |
 | Contact name, email, address | Settings > Journal > Contact |
 | Menu items | Settings > Website > Setup > Navigation Menus |
-| Statistics, latest articles, current issue | Published issues and articles (automatic) |
-| Tagline, hero text, call for papers, subject areas, About LBEF, phone, website, earlier-volumes link, social links | Settings > Website > Appearance > Theme (theme options) |
+| Issue/article counts, current issue and its table of contents | Published issues and articles (automatic) |
+| Sidebar blocks | Settings > Website > Appearance > Sidebar |
+| Tagline, call for papers, subject areas, About LBEF, phone, website, earlier-volumes link, social links | Settings > Website > Appearance > Theme (theme options) |
 
 To hide an optional section, enter a single hyphen `-` in its theme option.
 Clearing the field restores the default text.
 
-Homepage statistics are cached for 15 minutes.
+Issue and article counts are cached for 15 minutes.
 
 ## Install / update
 

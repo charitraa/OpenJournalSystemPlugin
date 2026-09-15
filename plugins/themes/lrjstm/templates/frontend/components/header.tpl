@@ -23,7 +23,7 @@
 		<header class="pkp_structure_head lr-header" id="headerNavigationContainer" role="banner">
 			{include file="frontend/components/skipLinks.tpl"}
 
-			{* Top utility bar: ISSN + account menu *}
+			{* Utility bar: ISSN + account menu *}
 			<div class="lr-topbar">
 				<div class="lr-container lr-topbar__inner">
 					<div class="lr-topbar__issn">
@@ -40,7 +40,8 @@
 				</div>
 			</div>
 
-			<div class="lr-container lr-header__main">
+			{* Journal identity *}
+			<div class="lr-container lr-brandbar">
 				{if !$requestedPage || $requestedPage === 'index'}
 					<h1 class="pkp_screen_reader">
 						{if $currentContext}
@@ -75,27 +76,36 @@
 				<button class="pkp_site_nav_toggle lr-nav-toggle" type="button" aria-controls="lrSiteNav" aria-expanded="false">
 					<span>{translate key="plugins.themes.lrjstm.openMenu"}</span>
 				</button>
-
-				{capture assign="primaryMenu"}
-					{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
-				{/capture}
-				<nav class="pkp_site_nav_menu lr-nav" id="lrSiteNav" aria-label="{translate|escape key="common.navigation.site"}">
-					<a id="siteNav"></a>
-					<div class="pkp_navigation_primary_row">
-						<div class="pkp_navigation_primary_wrapper">
-							{$primaryMenu}
-							{if $currentContext && $requestedPage !== 'search'}
-								<div class="pkp_navigation_search_wrapper">
-									<a href="{url page="search"}" class="pkp_search pkp_search_desktop">
-										<span class="fa fa-search" aria-hidden="true"></span>
-										{translate key="common.search"}
-									</a>
-								</div>
-							{/if}
-						</div>
-					</div>
-				</nav>
 			</div>
+
+			{* Primary navigation *}
+			{capture assign="primaryMenu"}
+				{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
+			{/capture}
+			<nav class="pkp_site_nav_menu lr-nav" id="lrSiteNav" aria-label="{translate|escape key="common.navigation.site"}">
+				<a id="siteNav"></a>
+				<div class="lr-container pkp_navigation_primary_row">
+					<div class="pkp_navigation_primary_wrapper">
+						{$primaryMenu}
+						{if $currentContext && $requestedPage !== 'search'}
+							<div class="pkp_navigation_search_wrapper">
+								<form class="lr-navsearch" method="get" action="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="search" op="search"}" role="search">
+									<label class="pkp_screen_reader" for="lrNavQuery">{translate key="plugins.themes.lrjstm.searchLabel"}</label>
+									<input class="lr-navsearch__input" type="search" id="lrNavQuery" name="query" placeholder="{translate|escape key="plugins.themes.lrjstm.searchPlaceholder"}">
+									<button class="lr-navsearch__submit" type="submit">
+										<span class="fa fa-search" aria-hidden="true"></span>
+										<span class="pkp_screen_reader">{translate key="common.search"}</span>
+									</button>
+								</form>
+							</div>
+						{/if}
+					</div>
+				</div>
+			</nav>
+
+			{if $currentContext && (!$requestedPage || $requestedPage === 'index')}
+				{include file="frontend/components/lrjstmJournalBanner.tpl"}
+			{/if}
 		</header>
 
 		{if $isFullWidth}

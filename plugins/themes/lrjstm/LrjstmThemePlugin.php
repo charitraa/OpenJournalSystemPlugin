@@ -10,31 +10,25 @@
  * templates, styles, scripts and accessibility behaviour, and only
  * overrides the public header, footer, homepage and list items.
  *
- * The theme never writes to the database. Homepage statistics and the
- * latest-articles list are read-only queries, cached for a short time.
+ * The theme never writes to the database. Homepage statistics are
+ * read-only queries, cached for a short time.
  */
 
 namespace APP\plugins\themes\lrjstm;
 
 use APP\core\Application;
 use APP\facades\Repo;
-use APP\submission\Collector as SubmissionCollector;
 use APP\template\TemplateManager;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use PKP\plugins\Hook;
 use PKP\plugins\ThemePlugin;
-use PKP\security\Role;
 use PKP\submission\PKPSubmission;
-use PKP\userGroup\UserGroup;
 
 class LrjstmThemePlugin extends ThemePlugin
 {
     /** Seconds to cache homepage statistics */
     public const STATS_CACHE_TTL = 900;
-
-    /** Number of articles shown in "Latest articles" on the homepage */
-    public const LATEST_ARTICLES_COUNT = 5;
 
     public function init()
     {
@@ -92,8 +86,6 @@ class LrjstmThemePlugin extends ThemePlugin
         };
 
         $text('tagline', 'A scholarly platform for research, innovation and knowledge sharing.');
-        $text('heroTitle', 'Discover, read and share research');
-        $text('heroSubtitle', 'Search published research in science, technology and management by title, author or keyword.');
         $text('callForPapers', 'LRJSTM welcomes original research papers in science, technology, management and related disciplines. Read the author guidelines and submit your manuscript online.', true);
         $text('subjectAreas', "Computer Science & IT\nManagement\nInformation Technology\nArtificial Intelligence", true);
         $text('aboutInstitution', 'Lord Buddha Education Foundation (LBEF College), established in 1998, is the first IT college of Nepal, offering IT and management programmes in academic collaboration with Asia Pacific University of Technology & Innovation (APU), Malaysia.', true);
@@ -150,29 +142,8 @@ class LrjstmThemePlugin extends ThemePlugin
             error_log('[lrjstm theme] statistics unavailable: ' . $e->getMessage());
         }
 
-        $latestArticles = [];
-        $authorUserGroups = [];
-        try {
-            $latestArticles = Repo::submission()->getCollector()
-                ->filterByContextIds([$contextId])
-                ->filterByStatus([PKPSubmission::STATUS_PUBLISHED])
-                ->orderBy(SubmissionCollector::ORDERBY_DATE_PUBLISHED, SubmissionCollector::ORDER_DIR_DESC)
-                ->limit(self::LATEST_ARTICLES_COUNT)
-                ->getMany()
-                ->values()
-                ->all();
-
-            $authorUserGroups = UserGroup::withRoleIds([Role::ROLE_ID_AUTHOR])
-                ->withContextIds([$contextId])
-                ->get();
-        } catch (\Throwable $e) {
-            error_log('[lrjstm theme] latest articles unavailable: ' . $e->getMessage());
-        }
-
         $templateMgr->assign([
             'lrjstmStats' => $stats,
-            'lrjstmLatestArticles' => $latestArticles,
-            'lrjstmAuthorUserGroups' => $authorUserGroups,
             'lrjstmSubjectAreas' => $this->getLines($this->getDisplayOption('subjectAreas')),
         ]);
     }
