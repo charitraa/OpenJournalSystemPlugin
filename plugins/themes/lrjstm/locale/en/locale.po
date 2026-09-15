@@ -1,0 +1,252 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "plugins.themes.lrjstm.name"
+msgstr "LRJSTM Theme"
+
+msgid "plugins.themes.lrjstm.description"
+msgstr "LBEF-branded academic journal theme for the LBEF Research Journal of Science, Technology and Management. A child theme of the OJS Default theme."
+
+# Theme options
+
+msgid "plugins.themes.lrjstm.option.tagline.label"
+msgstr "Journal tagline"
+
+msgid "plugins.themes.lrjstm.option.tagline.description"
+msgstr "Short line shown under the journal name in the header."
+
+msgid "plugins.themes.lrjstm.option.heroTitle.label"
+msgstr "Homepage heading"
+
+msgid "plugins.themes.lrjstm.option.heroTitle.description"
+msgstr "Large heading above the homepage search box."
+
+msgid "plugins.themes.lrjstm.option.heroSubtitle.label"
+msgstr "Homepage search introduction"
+
+msgid "plugins.themes.lrjstm.option.heroSubtitle.description"
+msgstr "Short sentence under the homepage heading."
+
+msgid "plugins.themes.lrjstm.option.callForPapers.label"
+msgstr "Call for papers text"
+
+msgid "plugins.themes.lrjstm.option.callForPapers.description"
+msgstr "Shown in the Call for Papers box on the homepage. Leave empty to hide the box."
+
+msgid "plugins.themes.lrjstm.option.subjectAreas.label"
+msgstr "Subject areas"
+
+msgid "plugins.themes.lrjstm.option.subjectAreas.description"
+msgstr "One subject area per line. Each one links to an OJS search for that term. Leave empty to hide the section."
+
+msgid "plugins.themes.lrjstm.option.aboutInstitution.label"
+msgstr "About the publishing institution"
+
+msgid "plugins.themes.lrjstm.option.aboutInstitution.description"
+msgstr "Short paragraph about LBEF shown on the homepage and in the footer. Leave empty to hide it."
+
+msgid "plugins.themes.lrjstm.option.institutionUrl.label"
+msgstr "Institution website"
+
+msgid "plugins.themes.lrjstm.option.institutionUrl.description"
+msgstr "Full URL, for example https://www.lbef.org/"
+
+msgid "plugins.themes.lrjstm.option.institutionPhone.label"
+msgstr "Institution phone"
+
+msgid "plugins.themes.lrjstm.option.institutionPhone.description"
+msgstr "Shown in the footer. The journal contact name and email come from Settings > Journal > Contact."
+
+msgid "plugins.themes.lrjstm.option.legacyArchiveUrl.label"
+msgstr "Earlier volumes link"
+
+msgid "plugins.themes.lrjstm.option.legacyArchiveUrl.description"
+msgstr "Link to issues published before this OJS site (for example on lbef.org). Leave empty to hide the link."
+
+msgid "plugins.themes.lrjstm.option.facebookUrl.label"
+msgstr "Facebook URL"
+
+msgid "plugins.themes.lrjstm.option.facebookUrl.description"
+msgstr "Leave empty to hide."
+
+msgid "plugins.themes.lrjstm.option.instagramUrl.label"
+msgstr "Instagram URL"
+
+msgid "plugins.themes.lrjstm.option.instagramUrl.description"
+msgstr "Leave empty to hide."
+
+msgid "plugins.themes.lrjstm.option.linkedinUrl.label"
+msgstr "LinkedIn URL"
+
+msgid "plugins.themes.lrjstm.option.linkedinUrl.description"
+msgstr "Leave empty to hide."
+
+msgid "plugins.themes.lrjstm.option.xUrl.label"
+msgstr "X (Twitter) URL"
+
+msgid "plugins.themes.lrjstm.option.xUrl.description"
+msgstr "Leave empty to hide."
+
+msgid "plugins.themes.lrjstm.option.youtubeUrl.label"
+msgstr "YouTube URL"
+
+msgid "plugins.themes.lrjstm.option.youtubeUrl.description"
+msgstr "Leave empty to hide."
+
+# Header
+
+msgid "plugins.themes.lrjstm.openMenu"
+msgstr "Open menu"
+
+msgid "plugins.themes.lrjstm.userMenu"
+msgstr "Account"
+
+msgid "plugins.themes.lrjstm.eIssn"
+msgstr "E-ISSN"
+
+msgid "plugins.themes.lrjstm.pIssn"
+msgstr "P-ISSN"
+
+# Homepage
+
+msgid "plugins.themes.lrjstm.hero.searchLabel"
+msgstr "Search articles"
+
+msgid "plugins.themes.lrjstm.hero.placeholder"
+msgstr "Search by title, author or keyword"
+
+msgid "plugins.themes.lrjstm.hero.advanced"
+msgstr "Advanced search"
+
+msgid "plugins.themes.lrjstm.stats.label"
+msgstr "Journal statistics"
+
+msgid "plugins.themes.lrjstm.stats.issues"
+msgstr "Issues published"
+
+msgid "plugins.themes.lrjstm.stats.articles"
+msgstr "Articles published"
+
+msgid "plugins.themes.lrjstm.stats.authors"
+msgstr "Authors"
+
+msgid "plugins.themes.lrjstm.stats.countries"
+msgstr "Countries represented"
+
+msgid "plugins.themes.lrjstm.latest.title"
+msgstr "Latest articles"
+
+msgid "plugins.themes.lrjstm.latest.viewAbstract"
+msgstr "View abstract"
+
+msgid "plugins.themes.lrjstm.latest.empty"
+msgstr "No articles have been published on this site yet."
+
+msgid "plugins.themes.lrjstm.latest.viewAll"
+msgstr "Browse all issues"
+
+msgid "plugins.themes.lrjstm.legacyArchive"
+msgstr "Browse earlier volumes on the LBEF website"
+
+msgid "plugins.themes.lrjstm.issue.view"
+msgstr "View issue"
+
+msgid "plugins.themes.lrjstm.issue.toc"
+msgstr "Table of contents"
+
+msgid "plugins.themes.lrjstm.issue.none"
+msgstr "No issue has been published on this site yet."
+
+msgid "plugins.themes.lrjstm.issue.published"
+msgstr "Published {$date}"
+
+msgid "plugins.themes.lrjstm.cfp.title"
+msgstr "Call for papers"
+
+msgid "plugins.themes.lrjstm.cfp.submit"
+msgstr "Submit a paper"
+
+msgid "plugins.themes.lrjstm.cfp.guidelines"
+msgstr "Author guidelines"
+
+msgid "plugins.themes.lrjstm.subjects.title"
+msgstr "Browse by subject area"
+
+msgid "plugins.themes.lrjstm.about.title"
+msgstr "About the journal"
+
+msgid "plugins.themes.lrjstm.about.more"
+msgstr "Read more about the journal"
+
+msgid "plugins.themes.lrjstm.about.institution"
+msgstr "About LBEF"
+
+msgid "plugins.themes.lrjstm.about.visitInstitution"
+msgstr "Visit the LBEF website"
+
+msgid "plugins.themes.lrjstm.info.title"
+msgstr "Journal information"
+
+msgid "plugins.themes.lrjstm.info.about"
+msgstr "Aims, scope and journal policies."
+
+msgid "plugins.themes.lrjstm.info.editorialBoard"
+msgstr "Editorial board"
+
+msgid "plugins.themes.lrjstm.info.editorialBoardDesc"
+msgstr "Editors and board members of the journal."
+
+msgid "plugins.themes.lrjstm.info.submissionsDesc"
+msgstr "Author guidelines, checklist and online submission."
+
+msgid "plugins.themes.lrjstm.info.archivesDesc"
+msgstr "Every published issue of the journal."
+
+msgid "plugins.themes.lrjstm.info.privacyDesc"
+msgstr "How personal information is used."
+
+msgid "plugins.themes.lrjstm.info.contactDesc"
+msgstr "Reach the journal's editorial office."
+
+# Footer
+
+msgid "plugins.themes.lrjstm.footer.quickLinks"
+msgstr "Quick links"
+
+msgid "plugins.themes.lrjstm.footer.forAuthors"
+msgstr "For authors"
+
+msgid "plugins.themes.lrjstm.footer.contact"
+msgstr "Contact"
+
+msgid "plugins.themes.lrjstm.footer.follow"
+msgstr "Follow LBEF"
+
+msgid "plugins.themes.lrjstm.footer.rights"
+msgstr "All rights reserved."
+
+msgid "plugins.themes.lrjstm.footer.publishedBy"
+msgstr "Published by {$publisher}"
+
+msgid "plugins.themes.lrjstm.social.facebook"
+msgstr "Facebook"
+
+msgid "plugins.themes.lrjstm.social.instagram"
+msgstr "Instagram"
+
+msgid "plugins.themes.lrjstm.social.linkedin"
+msgstr "LinkedIn"
+
+msgid "plugins.themes.lrjstm.social.x"
+msgstr "X"
+
+msgid "plugins.themes.lrjstm.social.youtube"
+msgstr "YouTube"

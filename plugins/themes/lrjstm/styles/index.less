@@ -1,0 +1,565 @@
+/**
+ * LRJSTM Theme — design system
+ *
+ * PALETTE (pulled directly from the LBEF logo)
+ *   Brand blue   #115DAA  — structure, links, nav
+ *   Brand red    #ED1F27  — one accent only: primary actions + "open access" signal
+ *   Ink navy     #0B2545  — headings, darkened from brand blue so it isn't flat black
+ *   Paper        #FAFAF8  — page background, warm off-white, not stark white
+ *   Hairline     #D8DCE1  — borders/rules
+ *   Slate        #5B6472  — secondary text, metadata
+ *
+ * TYPE
+ *   Source Serif 4 — journal name, article titles, section headings.
+ *     Print-journal weight without being a costume; it's the one bold
+ *     choice this theme spends its boldness on.
+ *   Inter — everything else: nav, metadata, buttons, body copy.
+ *
+ * Selectors under .lrjstm-* are our own markup (safe, no OJS dependency).
+ * Selectors like .pkp_head_wrapper restyle OJS's own chrome — verify
+ * these against your installed version in devtools if something looks
+ * off; they're stable across OJS 3.x but not contractually guaranteed.
+ */
+
+@brand-blue: #115DAA;
+@brand-red: #ED1F27;
+@ink: #0B2545;
+@paper: #FAFAF8;
+@hairline: #D8DCE1;
+@slate: #5B6472;
+@white: #FFFFFF;
+
+@serif: 'Source Serif 4', Georgia, serif;
+@sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+// -----------------------------------------------------------------
+// Base
+// -----------------------------------------------------------------
+body {
+	background: @paper;
+	color: @ink;
+	font-family: @sans;
+}
+
+a {
+	color: @brand-blue;
+}
+
+// -----------------------------------------------------------------
+// OJS chrome: header / primary nav / footer
+// -----------------------------------------------------------------
+.pkp_head_wrapper {
+	background: @white;
+	border-bottom: 1px solid @hairline;
+}
+
+.pkp_site_name_wrapper,
+.pkp_site_name {
+	.pkp_site_name a,
+	.pkp_site_name_text {
+		font-family: @serif;
+		font-weight: 600;
+		color: @ink;
+	}
+}
+
+.pkp_navigation_primary_row,
+.pkp_nav_list {
+	background: @ink;
+
+	a {
+		font-family: @sans;
+		font-weight: 500;
+		color: @white;
+		letter-spacing: 0.01em;
+
+		&:hover {
+			color: @brand-red;
+		}
+	}
+}
+
+.pkp_search .search_input,
+input[type="search"] {
+	border: 1px solid @hairline;
+	border-radius: 3px;
+}
+
+.pkp_structure_main {
+	background: transparent;
+}
+
+.pkp_structure_footer,
+.pkp_footer_content {
+	background: @ink;
+	color: fade(@white, 75%);
+	border-top: 3px solid @brand-red;
+
+	a {
+		color: @white;
+
+		&:hover {
+			color: fade(@white, 70%);
+		}
+	}
+}
+
+// -----------------------------------------------------------------
+// Buttons (shared component)
+// -----------------------------------------------------------------
+.lrjstm-btn {
+	display: inline-block;
+	padding: 0.7em 1.4em;
+	border-radius: 3px;
+	font-family: @sans;
+	font-weight: 600;
+	font-size: 0.95rem;
+	text-decoration: none;
+	transition: background-color 0.15s ease, color 0.15s ease;
+
+	&--primary {
+		background: @brand-red;
+		color: @white;
+
+		&:hover {
+			background: darken(@brand-red, 8%);
+			color: @white;
+		}
+	}
+
+	&--ghost {
+		background: transparent;
+		color: @ink;
+		border: 1px solid @hairline;
+
+		&:hover {
+			border-color: @ink;
+		}
+	}
+
+	&--block {
+		display: block;
+		text-align: center;
+		width: 100%;
+	}
+}
+
+// -----------------------------------------------------------------
+// Masthead
+// -----------------------------------------------------------------
+.lrjstm-masthead {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	gap: 3rem;
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: 3.5rem 1.5rem 3rem;
+	border-bottom: 1px solid @hairline;
+
+	&__main {
+		max-width: 640px;
+	}
+
+	&__eyebrow {
+		margin: 0 0 0.9rem;
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: @brand-blue;
+	}
+
+	&__title {
+		margin: 0 0 1rem;
+		font-family: @serif;
+		font-weight: 600;
+		font-size: 2.6rem;
+		line-height: 1.15;
+		color: @ink;
+	}
+
+	&__desc {
+		font-size: 1.05rem;
+		line-height: 1.6;
+		color: @slate;
+		margin-bottom: 1.6rem;
+		max-width: 60ch;
+	}
+
+	&__actions {
+		display: flex;
+		gap: 0.75rem;
+		flex-wrap: wrap;
+	}
+
+	// The "current issue" panel, styled like a book/issue spine card
+	&__issue {
+		flex: 0 0 220px;
+		display: flex;
+		flex-direction: column;
+		text-decoration: none;
+		border: 1px solid @hairline;
+		border-radius: 4px;
+		overflow: hidden;
+		background: @white;
+		box-shadow: 0 1px 2px rgba(11, 37, 69, 0.06);
+
+		&:hover {
+			border-color: @brand-blue;
+		}
+	}
+
+	&__cover {
+		width: 100%;
+		display: block;
+		aspect-ratio: 3 / 4;
+		object-fit: cover;
+		border-bottom: 3px solid @brand-red;
+	}
+
+	&__issue-label {
+		display: block;
+		padding: 0.9rem 1rem 0;
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.06em;
+		color: @brand-red;
+	}
+
+	&__issue-id {
+		display: block;
+		padding: 0.25rem 1rem 1rem;
+		font-family: @serif;
+		font-weight: 600;
+		color: @ink;
+	}
+
+	@media (max-width: 860px) {
+		flex-direction: column;
+		align-items: stretch;
+
+		&__issue {
+			flex: none;
+			flex-direction: row;
+			align-items: center;
+		}
+
+		&__cover {
+			width: 90px;
+			aspect-ratio: 3 / 4;
+			border-bottom: none;
+			border-right: 3px solid @brand-red;
+		}
+	}
+}
+
+// -----------------------------------------------------------------
+// Stats ledger — a data row, not icon cards
+// -----------------------------------------------------------------
+.lrjstm-ledger {
+	background: @ink;
+
+	&__row {
+		max-width: 1180px;
+		margin: 0 auto;
+		padding: 1.6rem 1.5rem;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+
+		dl {
+			margin: 0;
+			padding: 0 1.5rem;
+			border-left: 1px solid fade(@white, 15%);
+
+			&:first-child {
+				border-left: none;
+				padding-left: 0;
+			}
+		}
+
+		dt {
+			font-size: 0.8rem;
+			color: fade(@white, 65%);
+			margin-bottom: 0.3rem;
+		}
+
+		dd {
+			margin: 0;
+			font-family: @serif;
+			font-weight: 600;
+			font-size: 1.9rem;
+			color: @white;
+		}
+	}
+
+	@media (max-width: 700px) {
+		&__row {
+			grid-template-columns: repeat(2, 1fr);
+			row-gap: 1.4rem;
+
+			dl:nth-child(3) {
+				border-left: none;
+				padding-left: 0;
+			}
+		}
+	}
+}
+
+// -----------------------------------------------------------------
+// Body layout: article list (citation style) + sidebar
+// -----------------------------------------------------------------
+.lrjstm-body {
+	max-width: 1180px;
+	margin: 0 auto;
+	padding: 3rem 1.5rem 4rem;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 300px;
+	gap: 3.5rem;
+
+	@media (max-width: 900px) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.lrjstm-section-title {
+	font-family: @serif;
+	font-weight: 600;
+	font-size: 1.5rem;
+	color: @ink;
+	margin: 0 0 1.4rem;
+	padding-bottom: 0.8rem;
+	border-bottom: 2px solid @ink;
+}
+
+// Re-skin OJS's issue table-of-contents (used for the article list)
+// into a citation-style list rather than the default card grid.
+.lrjstm-issue-toc {
+	.section {
+		margin-bottom: 2.2rem;
+
+		.title {
+			font-family: @sans;
+			font-size: 0.8rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.06em;
+			color: @brand-blue;
+			margin-bottom: 0.8rem;
+		}
+	}
+
+	.obj_article_summary {
+		display: block;
+		padding: 1.3rem 0;
+		border-bottom: 1px solid @hairline;
+
+		&:first-child {
+			padding-top: 0;
+		}
+
+		.title {
+			font-family: @serif;
+			font-size: 1.15rem;
+			font-weight: 600;
+			line-height: 1.4;
+			margin-bottom: 0.35rem;
+
+			a {
+				color: @ink;
+				text-decoration: none;
+
+				&:hover {
+					color: @brand-red;
+				}
+			}
+		}
+
+		.authors {
+			font-size: 0.92rem;
+			color: @slate;
+			margin-bottom: 0.6rem;
+		}
+
+		.galleys_links {
+			list-style: none;
+			display: flex;
+			gap: 0.9rem;
+			padding: 0;
+			margin: 0;
+			font-size: 0.85rem;
+
+			a {
+				font-weight: 600;
+				color: @brand-blue;
+				text-decoration: none;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
+
+.lrjstm-empty {
+	color: @slate;
+	font-style: italic;
+}
+
+// Subject chips
+.lrjstm-subjects {
+	margin-top: 2.5rem;
+
+	h3 {
+		font-family: @sans;
+		font-size: 1rem;
+		font-weight: 600;
+		color: @ink;
+		margin-bottom: 0.9rem;
+	}
+
+	&__chips {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.6rem;
+
+		a {
+			display: inline-block;
+			padding: 0.5em 1em;
+			border: 1px solid @hairline;
+			border-radius: 999px;
+			font-size: 0.88rem;
+			color: @ink;
+			text-decoration: none;
+
+			&:hover {
+				border-color: @brand-blue;
+				color: @brand-blue;
+			}
+		}
+	}
+}
+
+// -----------------------------------------------------------------
+// Sidebar cards
+// -----------------------------------------------------------------
+.lrjstm-sidebar {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.lrjstm-card {
+	border: 1px solid @hairline;
+	border-radius: 4px;
+	padding: 1.5rem;
+	background: @white;
+
+	h3 {
+		font-family: @sans;
+		font-size: 0.95rem;
+		font-weight: 700;
+		color: @ink;
+		margin: 0 0 0.9rem;
+	}
+
+	p {
+		font-size: 0.92rem;
+		color: @slate;
+		line-height: 1.55;
+		margin: 0 0 1.1rem;
+	}
+
+	&--callout {
+		background: @ink;
+		border-color: @ink;
+
+		h3,
+		p {
+			color: @white;
+		}
+
+		p {
+			color: fade(@white, 78%);
+		}
+	}
+
+	&__more {
+		display: inline-block;
+		margin-top: 0.8rem;
+		font-size: 0.85rem;
+		font-weight: 600;
+	}
+}
+
+.lrjstm-mostread {
+	margin: 0;
+	padding-left: 1.2rem;
+
+	li {
+		margin-bottom: 0.7rem;
+		font-size: 0.92rem;
+	}
+
+	a {
+		color: @ink;
+		text-decoration: none;
+
+		&:hover {
+			color: @brand-red;
+		}
+	}
+}
+
+.lrjstm-editors {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	li {
+		padding: 0.7rem 0;
+		border-bottom: 1px solid @hairline;
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+
+	&__name {
+		display: block;
+		font-weight: 600;
+		font-size: 0.92rem;
+		color: @ink;
+	}
+
+	&__role {
+		display: block;
+		font-size: 0.82rem;
+		color: @slate;
+	}
+}
+
+.lrjstm-indexing {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+
+	a {
+		display: inline-block;
+		padding: 0.4em 0.9em;
+		border: 1px solid @hairline;
+		border-radius: 3px;
+		font-size: 0.82rem;
+		font-weight: 600;
+		color: @ink;
+		text-decoration: none;
+
+		&:hover {
+			border-color: @brand-blue;
+			color: @brand-blue;
+		}
+	}
+}

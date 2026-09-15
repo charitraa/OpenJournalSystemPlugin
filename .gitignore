@@ -1,0 +1,29 @@
+# ---------------------------------------------------------------
+# LBEF OJS — this repository tracks ONLY the custom LRJSTM theme.
+# OJS core, config, uploads and legacy folders stay on the server
+# and are intentionally ignored.
+# ---------------------------------------------------------------
+
+# Ignore everything at the top level...
+/*
+
+# ...except these
+!/.gitignore
+!/README.md
+!/plugins/
+
+# Inside plugins/, only keep the themes folder
+/plugins/*
+!/plugins/themes/
+
+# Inside themes/, only keep the LRJSTM theme
+/plugins/themes/*
+!/plugins/themes/lrjstm/
+
+# Build artifacts / editor noise
+*.zip
+*.tar.gz
+.DS_Store
+Thumbs.db
+*.swp
+*~
