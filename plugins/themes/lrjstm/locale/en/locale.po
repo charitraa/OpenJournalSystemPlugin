@@ -11,6 +11,15 @@ msgstr ""
 
 # Theme options
 
+msgid "plugins.themes.lrjstm.option.showPageFooter.label"
+msgstr "Page Footer content"
+
+msgid "plugins.themes.lrjstm.option.showPageFooter.description"
+msgstr "The theme footer already shows the journal, author and contact links. Tick this only if the Page Footer text in Settings > Website > Appearance > Setup adds something the theme footer does not."
+
+msgid "plugins.themes.lrjstm.option.showPageFooter.option"
+msgstr "Show the Page Footer content below the theme footer"
+
 msgid "plugins.themes.lrjstm.option.tagline.label"
 msgstr "Journal tagline"
 
@@ -159,9 +168,6 @@ msgstr "Editorial Board"
 
 msgid "plugins.themes.lrjstm.readAbout"
 msgstr "Read about the journal"
-
-msgid "plugins.themes.lrjstm.researchScope"
-msgstr "Research scope"
 
 msgid "plugins.themes.lrjstm.journalFacts"
 msgstr "Journal information"

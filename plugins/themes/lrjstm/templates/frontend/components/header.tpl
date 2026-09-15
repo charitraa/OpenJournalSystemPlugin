@@ -30,7 +30,6 @@
 				<div class="lr-container lr-topbar__inner">
 					{if $currentContext}
 						<p class="lr-topbar__journal">
-							<span class="lr-topbar__name">{$currentContext->getLocalizedName()|escape}</span>
 							{if $currentContext->getData('onlineIssn')}
 								<span class="lr-topbar__issn">{translate key="plugins.themes.lrjstm.eIssn"}: {$currentContext->getData('onlineIssn')|escape}</span>
 							{/if}

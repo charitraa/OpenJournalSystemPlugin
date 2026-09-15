@@ -596,8 +596,16 @@ img {
 }
 
 .page_contact {
+	> .cmp_edit_link {
+		float: none;
+		display: inline-block;
+		margin: -@lr-space-4 0 @lr-space-4;
+		line-height: 1.5;
+	}
+
 	.contact_section {
 		display: grid;
+		grid-template-columns: minmax(0, 1fr);
 		gap: @lr-space-6;
 
 		@media (min-width: @lr-bp-md) {
@@ -605,11 +613,58 @@ img {
 		}
 	}
 
-	.contact {
+	.address {
+		grid-column: ~"1 / -1";
+		margin: 0;
+		font-size: @lr-text-base;
+		line-height: 1.7;
+	}
+
+	.contact,
+	.contact.primary,
+	.contact.support {
+		float: none;
+		width: auto;
+		margin: 0;
 		padding: @lr-space-6;
 		border: 1px solid @lr-border;
-		border-radius: @lr-radius-lg;
+		border-top: 3px solid @lr-navy-800;
+		border-radius: 0 0 @lr-radius-lg @lr-radius-lg;
 		background: @lr-surface-alt;
+		word-break: break-word;
+
+		h2 {
+			margin: 0 0 @lr-space-3;
+			font-size: @lr-text-lg;
+		}
+
+		.name {
+			font-weight: 600;
+			color: @lr-ink;
+		}
+
+		.title,
+		.affiliation {
+			font-size: @lr-text-sm;
+			color: @lr-muted;
+		}
+
+		.phone,
+		.email {
+			margin: @lr-space-2 0 0;
+			font-size: @lr-text-sm;
+		}
+	}
+}
+
+// The parent theme's clearfix pseudo-elements become stray items inside
+// grid/flex containers; remove them wherever this theme uses grid or flex.
+.page_contact .contact_section,
+.cmp_pagination,
+.cmp_form .buttons {
+	&:before,
+	&:after {
+		display: none;
 	}
 }
 

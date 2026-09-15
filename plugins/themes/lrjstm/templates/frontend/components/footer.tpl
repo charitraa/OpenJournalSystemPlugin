@@ -116,7 +116,8 @@
 		</div>
 	{/if}
 
-	{if $pageFooter}
+	{* Page Footer content from Settings > Website > Appearance, shown only when enabled in the theme options (it usually repeats this footer) *}
+	{if $pageFooter && $lrjstmShowPageFooter}
 		<div class="lr-container">
 			<div class="pkp_footer_content lr-footer__custom">
 				{$pageFooter}

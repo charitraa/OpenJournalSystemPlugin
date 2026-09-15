@@ -101,6 +101,15 @@ class LrjstmThemePlugin extends ThemePlugin
             ]);
         };
 
+        $this->addOption('showPageFooter', 'FieldOptions', [
+            'label' => __('plugins.themes.lrjstm.option.showPageFooter.label'),
+            'description' => __('plugins.themes.lrjstm.option.showPageFooter.description'),
+            'options' => [
+                ['value' => true, 'label' => __('plugins.themes.lrjstm.option.showPageFooter.option')],
+            ],
+            'default' => false,
+        ]);
+
         $text('tagline', 'A scholarly platform for research, innovation and knowledge sharing.');
         $text('heroTitle', 'Discover Research. Share Knowledge. Create Impact.');
         $text('callForPapers', 'LRJSTM welcomes original research papers in science, technology, management and related disciplines. Read the author guidelines and submit your manuscript online.', true);
@@ -134,6 +143,7 @@ class LrjstmThemePlugin extends ThemePlugin
         // this theme's header and footer without a "frontend/" template name.
         $templateMgr->assign([
             'lrjstmOptions' => $this->getDisplayOptions(),
+            'lrjstmShowPageFooter' => !empty($this->getOption('showPageFooter')),
             'lrjstmSocialLinks' => $this->getSocialLinks(),
             'lrjstmYear' => date('Y'),
         ]);
@@ -214,7 +224,6 @@ class LrjstmThemePlugin extends ThemePlugin
             'lrjstmLatest' => $latest,
             'lrjstmSubjectAreas' => $subjectAreas,
             'lrjstmIsOpenAccess' => (int) $context->getData('publishingMode') === \APP\journal\Journal::PUBLISHING_MODE_OPEN,
-            'lrjstmHeroSummary' => $this->firstSentence((string) $context->getLocalizedData('description')),
         ]);
     }
 
@@ -385,18 +394,6 @@ class LrjstmThemePlugin extends ThemePlugin
     }
 
     /**
-     * First sentence of an HTML text, as plain text (used for the hero).
-     */
-    protected function firstSentence(string $html): string
-    {
-        $text = trim(preg_replace('/\s+/u', ' ', html_entity_decode(strip_tags($html), ENT_QUOTES | ENT_HTML5, 'UTF-8')));
-        if (preg_match('/^(.{40,}?[.!?])(\s|$)/u', $text, $match)) {
-            $text = $match[1];
-        }
-        return mb_strlen($text) > 320 ? rtrim(mb_substr($text, 0, 320)) . '…' : $text;
-    }
-
-    /**
      * Plain-text excerpt of an HTML abstract.
      */
     protected function excerpt(string $html): string
@@ -428,7 +425,10 @@ class LrjstmThemePlugin extends ThemePlugin
     protected function getDisplayOptions(): array
     {
         $options = [];
-        foreach (array_keys($this->options) as $name) {
+        foreach ($this->options as $name => $field) {
+            if (!$field instanceof \PKP\components\forms\FieldText) {
+                continue;
+            }
             $options[$name] = $this->getDisplayOption($name);
         }
         return $options;

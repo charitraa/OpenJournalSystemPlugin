@@ -19,7 +19,6 @@
  * @uses $lrjstmLatest array Most recently published article cards
  * @uses $lrjstmSubjectAreas array Subject areas from the theme options
  * @uses $lrjstmIsOpenAccess bool Journal publishing mode is open access
- * @uses $lrjstmHeroSummary string First sentence of the journal summary
  *
  * @hook Templates::Index::journal []
  * @hook Templates::Common::Sidebar []
@@ -47,14 +46,10 @@
 			</g>
 		</svg>
 		<div class="lr-container lr-hero__inner">
-			<p class="lr-eyebrow lr-eyebrow--inverse">
-				{if $journalAcronym}{$journalAcronym|escape}{else}{$currentJournal->getLocalizedName()|escape}{/if}
-				{if $currentJournal->getData('onlineIssn')}<span class="lr-hero__issn">{translate key="plugins.themes.lrjstm.eIssn"} {$currentJournal->getData('onlineIssn')|escape}</span>{/if}
-			</p>
-			<h2 id="lrHeroTitle" class="lr-hero__title">{$lrjstmOptions.heroTitle|default:$currentJournal->getLocalizedName()|escape}</h2>
-			{if $lrjstmHeroSummary}
-				<p class="lr-hero__lead">{$lrjstmHeroSummary|escape}</p>
+			{if $journalAcronym}
+				<p class="lr-eyebrow lr-eyebrow--inverse">{$journalAcronym|escape}</p>
 			{/if}
+			<h2 id="lrHeroTitle" class="lr-hero__title">{$lrjstmOptions.heroTitle|default:$currentJournal->getLocalizedName()|escape}</h2>
 
 			<form class="lr-searchbar lr-hero__search" method="get" action="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="search" op="search"}" role="search">
 				<label class="pkp_screen_reader" for="lrHeroQuery">{translate key="plugins.themes.lrjstm.searchLabel"}</label>
@@ -65,13 +60,6 @@
 
 			<div class="lr-hero__below">
 				<a class="lr-hero__advanced" href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="search"}">{translate key="plugins.themes.lrjstm.advancedSearch"}</a>
-				{if $lrjstmSubjectAreas}
-					<ul class="lr-hero__topics" aria-label="{translate|escape key="plugins.themes.lrjstm.subjects.title"}">
-						{foreach from=$lrjstmSubjectAreas item=area}
-							<li><a href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="search" op="search" query=$area.name}">{$area.name|escape}</a></li>
-						{/foreach}
-					</ul>
-				{/if}
 			</div>
 		</div>
 	</section>
@@ -82,24 +70,12 @@
 		<div class="lr-container">
 			<div class="lr-intro__grid">
 				<div class="lr-intro__text">
-					<p class="lr-eyebrow">{translate key="about.aboutContext"}</p>
-					<h2 id="homepageAboutTitle" class="lr-heading">{$currentJournal->getLocalizedName()|escape}</h2>
+					<h2 id="homepageAboutTitle" class="lr-heading">{translate key="about.aboutContext"}</h2>
 					{if $currentJournal->getLocalizedData('description')}
 						<div class="lr-intro__desc">{$currentJournal->getLocalizedData('description')|strip_unsafe_html}</div>
 					{/if}
-					{if $lrjstmSubjectAreas}
-						<div class="lr-intro__scope">
-							<h3 class="lr-intro__scope-title">{translate key="plugins.themes.lrjstm.researchScope"}</h3>
-							<ul class="lr-tags">
-								{foreach from=$lrjstmSubjectAreas item=area}
-									<li>{$area.name|escape}</li>
-								{/foreach}
-							</ul>
-						</div>
-					{/if}
 					<div class="lr-intro__links">
 						<a class="lr-link" href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="about"}">{translate key="plugins.themes.lrjstm.readAbout"}</a>
-						<a class="lr-link" href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="about" op="editorialMasthead"}">{translate key="plugins.themes.lrjstm.editorialBoard"}</a>
 					</div>
 				</div>
 
@@ -125,7 +101,6 @@
 							<div><dt>{translate key="submission.license"}</dt><dd><a href="{$currentJournal->getData('licenseUrl')|escape}" rel="license noopener" target="_blank">{translate key="plugins.themes.lrjstm.viewLicense"}</a></dd></div>
 						{/if}
 					</dl>
-					<a class="lr-btn lr-btn--accent lr-factsheet__cta" href="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="about" op="submissions"}">{translate key="plugins.themes.lrjstm.submitPaper"}</a>
 				</aside>
 			</div>
 

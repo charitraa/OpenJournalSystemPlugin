@@ -70,12 +70,6 @@
 	z-index: 1;
 }
 
-.lr-hero__issn {
-	padding-left: @lr-space-3;
-	border-left: 1px solid fade(@lr-surface, 25%);
-	letter-spacing: 0.06em;
-}
-
 .pkp_structure_main .lr-hero__title {
 	max-width: 17ch;
 	margin: 0;
@@ -92,18 +86,6 @@
 
 	@media (min-width: @lr-bp-xl) {
 		font-size: 3.5rem;
-	}
-}
-
-.pkp_structure_main .lr-hero__lead {
-	max-width: 44rem;
-	margin: @lr-space-5 0 0;
-	font-size: @lr-text-md;
-	line-height: 1.6;
-	color: fade(@lr-surface, 80%);
-
-	@media (min-width: @lr-bp-md) {
-		font-size: 1.125rem;
 	}
 }
 
@@ -159,35 +141,6 @@
 	}
 }
 
-.lr-hero__topics {
-	display: flex;
-	flex-wrap: wrap;
-	gap: @lr-space-2;
-	margin: 0;
-	padding: 0;
-	list-style: none;
-
-	a {
-		display: inline-flex;
-		align-items: center;
-		min-height: 32px;
-		padding: 0 @lr-space-3;
-		border: 1px solid fade(@lr-surface, 22%);
-		border-radius: 999px;
-		color: fade(@lr-surface, 88%);
-		font-size: @lr-text-xs;
-		text-decoration: none;
-		transition: background-color @lr-duration @lr-ease, border-color @lr-duration @lr-ease;
-
-		&:hover,
-		&:focus {
-			background: fade(@lr-surface, 10%);
-			border-color: fade(@lr-surface, 50%);
-			color: @lr-surface;
-		}
-	}
-}
-
 // -----------------------------------------------------------------
 // Introduction and journal facts
 // -----------------------------------------------------------------
@@ -212,35 +165,6 @@
 
 	p {
 		margin: 0 0 @lr-space-4;
-	}
-}
-
-.lr-intro__scope {
-	margin-top: @lr-space-6;
-}
-
-.pkp_structure_main .lr-intro__scope-title {
-	margin-bottom: @lr-space-3;
-	font-family: @lr-font-sans;
-	.lr-caps();
-	color: @lr-muted;
-}
-
-.lr-tags {
-	display: flex;
-	flex-wrap: wrap;
-	gap: @lr-space-2;
-	margin: 0;
-	padding: 0;
-	list-style: none;
-
-	li {
-		padding: 6px @lr-space-3;
-		border: 1px solid @lr-border;
-		border-radius: @lr-radius;
-		background: @lr-surface-alt;
-		font-size: @lr-text-sm;
-		color: @lr-ink;
 	}
 }
 
@@ -296,11 +220,6 @@
 	align-items: center;
 	gap: 6px;
 	color: @lr-blue-600;
-}
-
-.lr-factsheet__cta {
-	width: 100%;
-	margin-top: @lr-space-6;
 }
 
 // Statistics
