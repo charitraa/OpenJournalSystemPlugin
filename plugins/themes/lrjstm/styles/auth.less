@@ -1,0 +1,209 @@
+/**
+ * @file plugins/themes/lrjstm/styles/auth.less
+ *
+ * Login, registration and password pages. Styling only: the core OJS
+ * templates, forms, CSRF tokens and authentication logic are unchanged.
+ */
+
+// Centre the form and move sidebar blocks out of the way on these pages.
+.pkp_page_login,
+.pkp_page_user.pkp_op_register,
+.pkp_page_user.pkp_op_activateUser {
+	.pkp_structure_content {
+		background: transparent;
+
+		@media (min-width: @lr-bp-lg) {
+			&.has_sidebar {
+				grid-template-columns: minmax(0, 1fr);
+			}
+		}
+	}
+
+	.pkp_structure_sidebar {
+		display: none;
+	}
+
+	.pkp_structure_main {
+		width: 100%;
+		margin: 0 auto;
+	}
+}
+
+.pkp_page_login .pkp_structure_content,
+.pkp_page_user.pkp_op_register .pkp_structure_content,
+.pkp_page_user.pkp_op_activateUser .pkp_structure_content {
+	@media (min-width: @lr-bp-md) {
+		padding-top: @lr-space-16;
+	}
+}
+
+.page_login,
+.page_lost_password,
+.page_register,
+.page_register_complete {
+	max-width: 30rem;
+	margin: 0 auto;
+	padding: @lr-space-8 @lr-space-6;
+	border: 1px solid @lr-border;
+	border-top: 3px solid @lr-navy-800;
+	border-radius: 0 0 @lr-radius-lg @lr-radius-lg;
+	background: @lr-surface;
+	box-shadow: @lr-shadow;
+
+	@media (min-width: @lr-bp-sm) {
+		padding: @lr-space-10;
+	}
+
+	.cmp_breadcrumbs {
+		margin-bottom: @lr-space-5;
+	}
+
+	> h1 {
+		margin: 0 0 @lr-space-2;
+		padding: 0;
+		border: 0;
+		font-size: @lr-text-2xl;
+		text-align: left;
+	}
+
+	> p {
+		color: @lr-muted;
+	}
+
+	.cmp_form {
+		margin-top: @lr-space-6;
+
+		fieldset.fields,
+		.fields {
+			margin: 0;
+			padding: 0;
+			border: 0;
+		}
+
+		.fields > div,
+		fieldset > div {
+			margin-bottom: @lr-space-5;
+		}
+
+		label {
+			display: block;
+		}
+
+		.label {
+			display: block;
+			margin-bottom: @lr-space-1;
+		}
+
+		input[type="text"],
+		input[type="email"],
+		input[type="password"],
+		select {
+			width: 100%;
+		}
+
+		.password a,
+		.remember {
+			font-size: @lr-text-sm;
+		}
+
+		.password a {
+			display: inline-block;
+			margin-top: @lr-space-2;
+		}
+
+		.remember label,
+		.optin label,
+		.consent label {
+			display: flex;
+			align-items: flex-start;
+			gap: @lr-space-2;
+			font-weight: 400;
+
+			input {
+				margin-top: 4px;
+			}
+		}
+	}
+
+	.login {
+		max-width: none;
+	}
+
+	.buttons {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		gap: @lr-space-4;
+		margin-top: @lr-space-6;
+		padding-top: @lr-space-6;
+		border-top: 1px solid @lr-border;
+		text-align: center;
+
+		button,
+		a {
+			float: none;
+			margin: 0;
+		}
+
+		button.submit {
+			width: 100%;
+		}
+
+		a.register,
+		a.login {
+			font-size: @lr-text-sm;
+			font-weight: 600;
+		}
+	}
+}
+
+// Registration is longer: allow a wider panel with two columns of fields.
+.page_register {
+	max-width: 44rem;
+
+	.cmp_form .fields {
+		@media (min-width: @lr-bp-md) {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			column-gap: @lr-space-5;
+
+			> div {
+				margin-bottom: @lr-space-5;
+			}
+
+			.affiliation,
+			.country,
+			.email,
+			.password,
+			.username,
+			.optin,
+			.reviewer_interests,
+			.consent {
+				grid-column: ~"1 / -1";
+			}
+		}
+	}
+
+	fieldset {
+		margin-bottom: @lr-space-6;
+	}
+
+	legend {
+		font-size: @lr-text-md;
+	}
+
+	.context_optin {
+		padding: @lr-space-4;
+		border: 1px solid @lr-border;
+		border-radius: @lr-radius;
+		background: @lr-surface-alt;
+	}
+}
+
+.page_register_complete {
+	max-width: 36rem;
+
+	ul {
+		padding-left: @lr-space-5;
+	}
+}

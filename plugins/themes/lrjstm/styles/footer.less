@@ -1,0 +1,207 @@
+/**
+ * @file plugins/themes/lrjstm/styles/footer.less
+ *
+ * Multi-column footer with journal, author and contact links.
+ */
+
+.pkp_structure_footer_wrapper.lr-footer {
+	background: @lr-navy-800;
+	color: fade(@lr-surface, 74%);
+	font-size: @lr-text-sm;
+	line-height: 1.65;
+
+	a {
+		color: fade(@lr-surface, 88%);
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			color: @lr-surface;
+			text-decoration: underline;
+		}
+	}
+}
+
+.lr-footer__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: @lr-space-10;
+	padding-top: @lr-space-12;
+	padding-bottom: @lr-space-10;
+
+	@media (min-width: @lr-bp-md) {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	@media (min-width: @lr-bp-lg) {
+		grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1.3fr);
+		gap: @lr-space-12;
+		padding-top: @lr-space-16;
+		padding-bottom: @lr-space-12;
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	li {
+		margin: 0 0 @lr-space-2;
+	}
+}
+
+.lr-footer__logo {
+	display: inline-block;
+	padding: @lr-space-2 @lr-space-3;
+	border-radius: @lr-radius;
+	background: @lr-surface;
+
+	img {
+		display: block;
+		width: auto;
+		height: 40px;
+		max-width: 100%;
+	}
+}
+
+.lr-footer__name {
+	margin: @lr-space-5 0 @lr-space-2;
+	font-family: @lr-font-serif;
+	font-size: @lr-text-md;
+	font-weight: 600;
+	line-height: 1.35;
+	color: @lr-surface;
+}
+
+.lr-footer__desc,
+.lr-footer__publisher {
+	max-width: 36ch;
+	margin: 0 0 @lr-space-3;
+}
+
+.lr-footer__heading {
+	margin: 0 0 @lr-space-4;
+	padding-bottom: @lr-space-3;
+	border-bottom: 1px solid fade(@lr-surface, 12%);
+	.lr-caps();
+	color: @lr-surface;
+}
+
+.lr-footer__contact {
+	li {
+		display: flex;
+		align-items: baseline;
+		gap: @lr-space-3;
+	}
+
+	.fa {
+		width: 14px;
+		flex: 0 0 14px;
+		color: fade(@lr-surface, 55%);
+		text-align: center;
+	}
+}
+
+.lr-footer__contact-name {
+	font-weight: 600;
+	color: @lr-surface;
+}
+
+.lr-footer__more {
+	font-weight: 600;
+}
+
+.lr-footer .lr-social {
+	display: flex;
+	flex-wrap: wrap;
+	gap: @lr-space-2;
+	margin-top: @lr-space-5;
+
+	li {
+		margin: 0;
+	}
+
+	a {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 36px;
+		height: 36px;
+		border: 1px solid fade(@lr-surface, 18%);
+		border-radius: 50%;
+		color: @lr-surface;
+		transition: background-color @lr-duration @lr-ease, border-color @lr-duration @lr-ease;
+
+		&:hover,
+		&:focus {
+			background: @lr-red-600;
+			border-color: @lr-red-600;
+			color: @lr-surface;
+			text-decoration: none;
+		}
+	}
+}
+
+.lr-footer .pkp_footer_content.lr-footer__custom {
+	padding: @lr-space-6 0;
+	border-top: 1px solid fade(@lr-surface, 12%);
+	color: fade(@lr-surface, 74%);
+	text-align: left;
+
+	h1, h2, h3, h4 {
+		color: @lr-surface;
+	}
+}
+
+.lr-footer__bottom {
+	background: @lr-navy-900;
+	border-top: 2px solid @lr-red-500;
+	font-size: @lr-text-xs;
+}
+
+.lr-footer__bottom-inner {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: @lr-space-3 @lr-space-6;
+	padding-top: @lr-space-4;
+	padding-bottom: @lr-space-4;
+}
+
+.lr-footer__copyright {
+	margin: 0;
+}
+
+.lr-footer__legal {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: @lr-space-2 @lr-space-6;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	.pkp_brand_footer {
+		padding: 0;
+
+		a {
+			display: block;
+			float: none;
+			max-width: none;
+		}
+
+		img {
+			display: block;
+			width: auto;
+			height: 36px;
+			opacity: 0.8;
+		}
+
+		a:hover img,
+		a:focus img {
+			opacity: 1;
+		}
+	}
+}

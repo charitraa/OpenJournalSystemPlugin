@@ -1,0 +1,324 @@
+/**
+ * @file plugins/themes/lrjstm/styles/issue.less
+ *
+ * Issue page (issue.tpl + issue_toc.tpl) and archive (issueArchive.tpl +
+ * issue_summary.tpl).
+ */
+
+// -----------------------------------------------------------------
+// Issue header
+// -----------------------------------------------------------------
+.lr-issuehead {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: @lr-space-8;
+	align-items: start;
+	margin: 0 0 @lr-space-10;
+	padding-bottom: @lr-space-10;
+	border-bottom: 1px solid @lr-border;
+
+	@media (min-width: @lr-bp-sm) {
+		grid-template-columns: 160px minmax(0, 1fr);
+	}
+
+	@media (min-width: @lr-bp-lg) {
+		grid-template-columns: 200px minmax(0, 1fr);
+		gap: @lr-space-10;
+	}
+}
+
+.lr-issuehead__cover {
+	max-width: 200px;
+	font-size: 0.95rem;
+}
+
+.pkp_structure_main .lr-issuehead__title {
+	margin: 0;
+	font-family: @lr-font-serif;
+	font-size: @lr-text-2xl;
+	font-weight: 600;
+	line-height: @lr-leading-tight;
+
+	@media (min-width: @lr-bp-md) {
+		font-size: @lr-text-3xl;
+	}
+}
+
+.lr-issuehead__facts {
+	margin-top: @lr-space-5;
+}
+
+.lr-issuehead__desc {
+	max-width: @lr-reading;
+	margin-top: @lr-space-5;
+	line-height: 1.7;
+
+	p {
+		margin: 0 0 @lr-space-3;
+	}
+}
+
+.lr-issue-legacy {
+	margin-top: @lr-space-6;
+}
+
+// -----------------------------------------------------------------
+// Table of contents
+// -----------------------------------------------------------------
+.obj_issue_toc {
+	.heading {
+		display: flex;
+		flex-wrap: wrap;
+		gap: @lr-space-6;
+		align-items: flex-start;
+
+		&:before,
+		&:after {
+			display: none;
+		}
+
+		&:empty {
+			display: none;
+		}
+
+		.cover {
+			float: none;
+			width: 160px;
+			max-width: 40%;
+			margin: 0;
+
+			img {
+				border-radius: @lr-radius-sm;
+				box-shadow: @lr-shadow;
+			}
+		}
+
+		.description {
+			flex: 1 1 280px;
+			margin: 0;
+		}
+
+		.pub_id,
+		.published {
+			flex: 1 1 100%;
+			margin: 0;
+			font-size: @lr-text-sm;
+			color: @lr-muted;
+
+			.type,
+			.label {
+				font-weight: 600;
+				color: @lr-ink;
+			}
+		}
+	}
+
+	.galleys {
+		margin: @lr-space-8 0 0;
+		padding: @lr-space-5;
+		border: 1px solid @lr-border;
+		border-radius: @lr-radius-lg;
+		background: @lr-surface-alt;
+
+		&:before {
+			display: none;
+		}
+
+		> h2,
+		> h3 {
+			position: static;
+			display: block;
+			margin: 0 0 @lr-space-3;
+			padding: 0;
+			background: none;
+			.lr-caps();
+			color: @lr-ink;
+		}
+
+		.galleys_links {
+			display: flex;
+			flex-wrap: wrap;
+			gap: @lr-space-2;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+	}
+
+	.pkp_structure_main & .lr-toc__title,
+	.lr-toc__title {
+		margin: @lr-space-10 0 0;
+		padding-bottom: @lr-space-4;
+		border-bottom: 2px solid @lr-ink;
+		font-family: @lr-font-serif;
+		font-size: @lr-text-xl;
+		font-weight: 600;
+
+		@media (min-width: @lr-bp-md) {
+			font-size: @lr-text-2xl;
+		}
+	}
+
+	.sections {
+		margin-top: 0;
+	}
+
+	.section {
+		margin: 0;
+		padding: 0;
+
+		&:before {
+			display: none;
+		}
+
+		> h2,
+		> h3,
+		> h4 {
+			position: static;
+			display: flex;
+			align-items: center;
+			gap: @lr-space-3;
+			left: auto;
+			margin: @lr-space-8 0 0;
+			padding: 0 0 @lr-space-2;
+			background: none;
+			border-bottom: 1px solid @lr-border;
+			.lr-caps();
+			color: @lr-red-600;
+
+			&:before {
+				content: "";
+				width: 16px;
+				height: 2px;
+				background: @lr-red-500;
+			}
+		}
+	}
+
+	.sections:not(:first-child) {
+		margin-top: 0;
+	}
+
+	.articles {
+		margin-top: 0;
+	}
+}
+
+// -----------------------------------------------------------------
+// Archive
+// -----------------------------------------------------------------
+.lr-archive__year {
+	& + & {
+		margin-top: @lr-space-12;
+	}
+}
+
+.pkp_structure_main .lr-archive__yeartitle {
+	display: flex;
+	align-items: center;
+	gap: @lr-space-4;
+	margin: 0 0 @lr-space-6;
+	font-family: @lr-font-serif;
+	font-size: @lr-text-2xl;
+	font-weight: 600;
+	color: @lr-ink;
+
+	&:after {
+		content: "";
+		flex: 1 1 auto;
+		height: 1px;
+		background: @lr-border;
+	}
+}
+
+.page_issue_archive .issues_archive,
+.issues_archive {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+	gap: @lr-space-8 @lr-space-6;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	list-style: none;
+
+	> li {
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
+
+	@media (max-width: (@lr-bp-sm - 1)) {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: @lr-space-6 @lr-space-4;
+	}
+}
+
+.obj_issue_summary.lr-issue-card {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+
+	.cover {
+		float: none;
+		width: 100%;
+		margin: 0;
+		font-size: 0.9rem;
+		color: @lr-surface;
+		text-decoration: none;
+		transition: transform @lr-duration @lr-ease, box-shadow @lr-duration @lr-ease;
+
+		&:hover {
+			transform: translateY(-2px);
+		}
+	}
+
+	.lr-issue-card__body {
+		display: flex;
+		flex: 1 1 auto;
+		flex-direction: column;
+		padding-top: @lr-space-4;
+	}
+
+	.lr-issue-card__title {
+		margin: 0;
+		font-family: @lr-font-serif;
+		font-size: @lr-text-md;
+		font-weight: 600;
+		line-height: @lr-leading-snug;
+
+		a {
+			color: @lr-ink;
+			text-decoration: none;
+
+			&:hover,
+			&:focus {
+				color: @lr-blue-600;
+				text-decoration: underline;
+			}
+		}
+	}
+
+	.series,
+	.lr-issue-card__date {
+		margin: @lr-space-1 0 0;
+		font-size: @lr-text-xs;
+		color: @lr-muted;
+	}
+
+	.description {
+		.lr-clamp(3);
+		margin-top: @lr-space-2;
+		font-size: @lr-text-sm;
+		line-height: 1.55;
+		color: @lr-text;
+
+		p {
+			margin: 0;
+		}
+	}
+
+	.lr-issue-card__link {
+		margin-top: auto;
+		padding-top: @lr-space-3;
+	}
+}

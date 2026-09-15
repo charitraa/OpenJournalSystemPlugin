@@ -3,10 +3,14 @@
  *
  * Issue card used in the archive. Based on
  * templates/frontend/objects/issue_summary.tpl, with a branded placeholder
- * when the issue has no cover image.
+ * when the issue has no cover image and a "View issue" link.
  *
  * @uses $issue Issue The issue
+ * @uses $heading string Heading element for the issue title, default: h2
  *}
+{if !$heading}
+	{assign var="heading" value="h2"}
+{/if}
 {if $issue->getShowTitle()}
 	{assign var=issueTitle value=$issue->getLocalizedTitle()}
 {/if}
@@ -17,19 +21,14 @@
 
 	<a class="cover lr-cover{if !$issueCover} lr-cover--placeholder{/if}" href="{url op="view" path=$issue->getBestIssueId()}" tabindex="-1" aria-hidden="true">
 		{if $issueCover}
-			<img src="{$issueCover|escape}" alt="{$issue->getLocalizedCoverImageAltText()|escape|default:''}" loading="lazy">
+			<img src="{$issueCover|escape}" alt="" loading="lazy">
 		{else}
-			{if $currentContext}
-				<span class="lr-cover__abbr">{$currentContext->getLocalizedAcronym()|default:$currentContext->getLocalizedAbbreviation()|escape}</span>
-			{/if}
-			{if $issue->getVolume()}<span class="lr-cover__vol">{translate key="issue.vol"} {$issue->getVolume()|escape}</span>{/if}
-			{if $issue->getNumber()}<span class="lr-cover__no">{translate key="issue.no"} {$issue->getNumber()|escape}</span>{/if}
-			{if $issue->getYear()}<span class="lr-cover__year">{$issue->getYear()|escape}</span>{/if}
+			{include file="frontend/components/lrjstmCoverPlaceholder.tpl" coverIssue=$issue}
 		{/if}
 	</a>
 
 	<div class="lr-issue-card__body">
-		<h2>
+		<{$heading} class="lr-issue-card__title">
 			<a class="title" href="{url op="view" path=$issue->getBestIssueId()}">
 				{if $issueTitle}
 					{$issueTitle|escape}
@@ -37,17 +36,22 @@
 					{$issueSeries|escape}
 				{/if}
 			</a>
-			{if $issueTitle && $issueSeries}
-				<div class="series">
-					{$issueSeries|escape}
-				</div>
-			{/if}
-		</h2>
+		</{$heading}>
+		{if $issueTitle && $issueSeries}
+			<p class="series">{$issueSeries|escape}</p>
+		{/if}
+		{if $issue->getDatePublished()}
+			<p class="lr-issue-card__date">{translate key="plugins.themes.lrjstm.issue.published" date=$issue->getDatePublished()|date_format:$dateFormatShort}</p>
+		{/if}
 
-		{if $issue->getLocalizedDescription()}
+		{if $issue->hasDescription()}
 			<div class="description">
 				{$issue->getLocalizedDescription()|strip_unsafe_html}
 			</div>
 		{/if}
+
+		<a class="lr-link lr-issue-card__link" href="{url op="view" path=$issue->getBestIssueId()}">
+			{translate key="plugins.themes.lrjstm.viewIssue"}<span class="pkp_screen_reader"> {$issue->getIssueIdentification()|escape}</span>
+		</a>
 	</div>
 </div><!-- .obj_issue_summary -->

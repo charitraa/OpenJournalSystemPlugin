@@ -9,55 +9,85 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "plugins.themes.lrjstm.name"
-msgstr "LRJSTM Theme"
-
-msgid "plugins.themes.lrjstm.description"
-msgstr "LBEF-branded journal theme for the LBEF Research Journal of Science, Technology and Management. A child theme of the OJS Default theme."
-
 # Theme options
 
 msgid "plugins.themes.lrjstm.option.tagline.label"
 msgstr "Journal tagline"
 
 msgid "plugins.themes.lrjstm.option.tagline.description"
-msgstr "Short line shown under the journal name in the header. Enter a single hyphen (-) to hide it."
+msgstr "Short line under the journal name in the header. Enter a single hyphen (-) to hide."
+
+msgid "plugins.themes.lrjstm.option.heroTitle.label"
+msgstr "Homepage headline"
+
+msgid "plugins.themes.lrjstm.option.heroTitle.description"
+msgstr "Large headline above the homepage search. Enter a single hyphen (-) to hide."
 
 msgid "plugins.themes.lrjstm.option.callForPapers.label"
 msgstr "Call for papers text"
 
 msgid "plugins.themes.lrjstm.option.callForPapers.description"
-msgstr "Shown as a notice on the homepage. Enter a single hyphen (-) to hide the notice."
+msgstr "Shown in the Call for Papers banner on the homepage. Enter a single hyphen (-) to hide."
 
 msgid "plugins.themes.lrjstm.option.subjectAreas.label"
-msgstr "Subject areas"
+msgstr "Research areas"
 
 msgid "plugins.themes.lrjstm.option.subjectAreas.description"
-msgstr "One subject area per line. Each one links to an OJS search for that term. Enter a single hyphen (-) to hide the section."
+msgstr "One area per line. Optionally add a short description after a vertical bar, e.g. \"Management | Business, finance and organisational research\". Each area links to an OJS search. Enter a single hyphen (-) to hide."
+
+msgid "plugins.themes.lrjstm.option.publicationFrequency.label"
+msgstr "Publication frequency"
+
+msgid "plugins.themes.lrjstm.option.publicationFrequency.description"
+msgstr "Shown in the homepage journal facts, e.g. \"Quarterly\". Leave empty if not officially defined."
 
 msgid "plugins.themes.lrjstm.option.aboutInstitution.label"
 msgstr "About the publishing institution"
 
 msgid "plugins.themes.lrjstm.option.aboutInstitution.description"
-msgstr "Short paragraph about LBEF shown in the footer. Enter a single hyphen (-) to hide it."
+msgstr "Short paragraph about LBEF shown in the homepage publishing section. Enter a single hyphen (-) to hide."
 
 msgid "plugins.themes.lrjstm.option.institutionUrl.label"
 msgstr "Institution website"
 
 msgid "plugins.themes.lrjstm.option.institutionUrl.description"
-msgstr "Full URL, for example https://www.lbef.org/. Enter a single hyphen (-) to hide it."
+msgstr "Full URL, for example https://www.lbef.org/. Enter a single hyphen (-) to hide."
 
 msgid "plugins.themes.lrjstm.option.institutionPhone.label"
 msgstr "Institution phone"
 
 msgid "plugins.themes.lrjstm.option.institutionPhone.description"
-msgstr "Shown in the footer. The journal contact name and email come from Settings > Journal > Contact. Enter a single hyphen (-) to hide it."
+msgstr "Shown in the footer. The journal contact name and email come from Settings > Journal > Contact. Enter a single hyphen (-) to hide."
 
 msgid "plugins.themes.lrjstm.option.legacyArchiveUrl.label"
 msgstr "Earlier volumes link"
 
 msgid "plugins.themes.lrjstm.option.legacyArchiveUrl.description"
-msgstr "Link to issues published before this OJS site, shown while no issue is published here. Enter a single hyphen (-) to hide the link."
+msgstr "Link to issues published before this OJS site, shown while no issue is published here. Enter a single hyphen (-) to hide."
+
+msgid "plugins.themes.lrjstm.option.policiesUrl.label"
+msgstr "Policies page URL"
+
+msgid "plugins.themes.lrjstm.option.policiesUrl.description"
+msgstr "Link to a journal policies page (for example a Static Page). Leave empty to hide."
+
+msgid "plugins.themes.lrjstm.option.ethicsUrl.label"
+msgstr "Publication ethics page URL"
+
+msgid "plugins.themes.lrjstm.option.ethicsUrl.description"
+msgstr "Link to the publication ethics statement. Leave empty to hide."
+
+msgid "plugins.themes.lrjstm.option.peerReviewUrl.label"
+msgstr "Peer review page URL"
+
+msgid "plugins.themes.lrjstm.option.peerReviewUrl.description"
+msgstr "Link to the peer review process description. Leave empty to hide."
+
+msgid "plugins.themes.lrjstm.option.accessibilityUrl.label"
+msgstr "Accessibility statement URL"
+
+msgid "plugins.themes.lrjstm.option.accessibilityUrl.description"
+msgstr "Shown in the footer. Leave empty to hide."
 
 msgid "plugins.themes.lrjstm.option.facebookUrl.label"
 msgstr "Facebook URL"
@@ -87,9 +117,15 @@ msgid "plugins.themes.lrjstm.option.youtubeUrl.label"
 msgstr "YouTube URL"
 
 msgid "plugins.themes.lrjstm.option.youtubeUrl.description"
-msgstr "Enter a single hyphen (-) to hide."
+msgstr "Leave empty to hide."
 
-# Header
+# Interface
+
+msgid "plugins.themes.lrjstm.name"
+msgstr "LRJSTM Theme"
+
+msgid "plugins.themes.lrjstm.description"
+msgstr "LBEF-branded academic journal theme for the LBEF Research Journal of Science, Technology and Management. A child theme of the OJS Default theme."
 
 msgid "plugins.themes.lrjstm.openMenu"
 msgstr "Open menu"
@@ -107,56 +143,199 @@ msgid "plugins.themes.lrjstm.searchLabel"
 msgstr "Search articles"
 
 msgid "plugins.themes.lrjstm.searchPlaceholder"
-msgstr "Search articles…"
+msgstr "Search articles, authors, keywords…"
 
-# Homepage
+msgid "plugins.themes.lrjstm.advancedSearch"
+msgstr "Advanced search"
 
-msgid "plugins.themes.lrjstm.makeSubmission"
-msgstr "Make a Submission"
+msgid "plugins.themes.lrjstm.submitPaper"
+msgstr "Submit Paper"
+
+msgid "plugins.themes.lrjstm.submitYourPaper"
+msgstr "Submit Your Paper"
+
+msgid "plugins.themes.lrjstm.editorialBoard"
+msgstr "Editorial Board"
+
+msgid "plugins.themes.lrjstm.readAbout"
+msgstr "Read about the journal"
+
+msgid "plugins.themes.lrjstm.researchScope"
+msgstr "Research scope"
+
+msgid "plugins.themes.lrjstm.journalFacts"
+msgstr "Journal information"
+
+msgid "plugins.themes.lrjstm.frequency"
+msgstr "Frequency"
+
+msgid "plugins.themes.lrjstm.access"
+msgstr "Access"
+
+msgid "plugins.themes.lrjstm.openAccess"
+msgstr "Open Access"
+
+msgid "plugins.themes.lrjstm.viewLicense"
+msgstr "View licence"
+
+msgid "plugins.themes.lrjstm.stats.label"
+msgstr "Publication statistics"
 
 msgid "plugins.themes.lrjstm.stats.issues"
-msgstr "Issues"
+msgstr "Issues published"
 
 msgid "plugins.themes.lrjstm.stats.articles"
-msgstr "Articles"
+msgstr "Articles published"
+
+msgid "plugins.themes.lrjstm.stats.authors"
+msgstr "Authors"
+
+msgid "plugins.themes.lrjstm.stats.areas"
+msgstr "Research areas"
+
+msgid "plugins.themes.lrjstm.featured.eyebrow"
+msgstr "Featured research"
+
+msgid "plugins.themes.lrjstm.featured.title"
+msgstr "From the current issue"
+
+msgid "plugins.themes.lrjstm.latest.title"
+msgstr "Latest research"
+
+msgid "plugins.themes.lrjstm.latest.viewAll"
+msgstr "View all articles"
+
+msgid "plugins.themes.lrjstm.articles.emptyTitle"
+msgstr "Research is on its way"
+
+msgid "plugins.themes.lrjstm.articles.empty"
+msgstr "No articles have been published on this site yet."
+
+msgid "plugins.themes.lrjstm.viewArticle"
+msgstr "View Article"
+
+msgid "plugins.themes.lrjstm.viewIssue"
+msgstr "View Issue"
 
 msgid "plugins.themes.lrjstm.issue.toc"
-msgstr "Table of contents"
+msgstr "Table of Contents"
+
+msgid "plugins.themes.lrjstm.issue.noneTitle"
+msgstr "Awaiting the first issue"
 
 msgid "plugins.themes.lrjstm.issue.none"
-msgstr "No issue has been published on this site yet."
+msgstr "No issue has been published yet."
 
 msgid "plugins.themes.lrjstm.issue.published"
 msgstr "Published {$date}"
 
-msgid "plugins.themes.lrjstm.legacyArchive"
-msgstr "Browse earlier volumes on the LBEF website"
+msgid "plugins.themes.lrjstm.volume"
+msgstr "Volume"
 
-msgid "plugins.themes.lrjstm.cfp.title"
+msgid "plugins.themes.lrjstm.number"
+msgstr "Issue"
+
+msgid "plugins.themes.lrjstm.year"
+msgstr "Year"
+
+msgid "plugins.themes.lrjstm.pages"
+msgstr "Pages"
+
+msgid "plugins.themes.lrjstm.legacyArchive"
+msgstr "Browse Earlier Volumes"
+
+msgid "plugins.themes.lrjstm.cfp.eyebrow"
 msgstr "Call for papers"
 
-msgid "plugins.themes.lrjstm.cfp.submit"
-msgstr "Submit a paper"
+msgid "plugins.themes.lrjstm.cfp.title"
+msgstr "Share your research with LRJSTM"
+
+msgid "plugins.themes.lrjstm.subjects.eyebrow"
+msgstr "Research areas"
 
 msgid "plugins.themes.lrjstm.subjects.title"
-msgstr "Subject areas"
+msgstr "Explore by subject"
 
-# Footer
+msgid "plugins.themes.lrjstm.explore"
+msgstr "Explore"
 
-msgid "plugins.themes.lrjstm.footer.quickLinks"
+msgid "plugins.themes.lrjstm.trust.eyebrow"
+msgstr "Publishing with the journal"
+
+msgid "plugins.themes.lrjstm.trust.title"
+msgstr "Editorial standards and policies"
+
+msgid "plugins.themes.lrjstm.trust.editorialDesc"
+msgstr "Editors and board members of the journal."
+
+msgid "plugins.themes.lrjstm.trust.guidelinesDesc"
+msgstr "How to prepare and submit a manuscript."
+
+msgid "plugins.themes.lrjstm.trust.reviewDesc"
+msgstr "How submitted manuscripts are reviewed."
+
+msgid "plugins.themes.lrjstm.trust.ethicsDesc"
+msgstr "Responsibilities of authors, reviewers and editors."
+
+msgid "plugins.themes.lrjstm.trust.openAccessDesc"
+msgstr "Published content is freely available to read."
+
+msgid "plugins.themes.lrjstm.trust.copyrightDesc"
+msgstr "Copyright notice and licensing terms."
+
+msgid "plugins.themes.lrjstm.trust.policiesDesc"
+msgstr "Journal policies in full."
+
+msgid "plugins.themes.lrjstm.trust.privacyDesc"
+msgstr "How personal information is used."
+
+msgid "plugins.themes.lrjstm.visitInstitution"
+msgstr "Visit the LBEF website"
+
+msgid "plugins.themes.lrjstm.ethics"
+msgstr "Publication Ethics"
+
+msgid "plugins.themes.lrjstm.peerReview"
+msgstr "Peer Review"
+
+msgid "plugins.themes.lrjstm.policies"
+msgstr "Policies"
+
+msgid "plugins.themes.lrjstm.copyright"
+msgstr "Copyright & Licensing"
+
+msgid "plugins.themes.lrjstm.accessibility"
+msgstr "Accessibility"
+
+msgid "plugins.themes.lrjstm.search.title"
+msgstr "Article title"
+
+msgid "plugins.themes.lrjstm.search.subject"
+msgstr "Keyword / subject"
+
+msgid "plugins.themes.lrjstm.search.abstract"
+msgstr "Abstract"
+
+msgid "plugins.themes.lrjstm.search.apply"
+msgstr "Apply filters"
+
+msgid "plugins.themes.lrjstm.search.reset"
+msgstr "Clear all"
+
+msgid "plugins.themes.lrjstm.footer.journal"
 msgstr "Journal"
 
 msgid "plugins.themes.lrjstm.footer.forAuthors"
-msgstr "For authors"
+msgstr "For Authors"
 
-msgid "plugins.themes.lrjstm.footer.contact"
-msgstr "Contact"
+msgid "plugins.themes.lrjstm.footer.contactPage"
+msgstr "Contact the editorial office"
 
 msgid "plugins.themes.lrjstm.footer.follow"
 msgstr "Follow LBEF"
 
 msgid "plugins.themes.lrjstm.footer.publishedBy"
-msgstr "Published by {$publisher}"
+msgstr "Published by {$publisher}."
 
 msgid "plugins.themes.lrjstm.social.facebook"
 msgstr "Facebook"
