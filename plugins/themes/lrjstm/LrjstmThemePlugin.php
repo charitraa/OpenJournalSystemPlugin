@@ -116,11 +116,10 @@ class LrjstmThemePlugin extends ThemePlugin
         $templateMgr = $args[0];
         $template = $args[1];
 
-        if (!is_string($template) || !str_starts_with($template, 'frontend/')) {
-            return Hook::CONTINUE;
-        }
-
+        // Assigned for every template: plugin pages (e.g. Static Pages) use
+        // this theme's header and footer without a "frontend/" template name.
         $templateMgr->assign([
+            'lrjstmOptions' => $this->getDisplayOptions(),
             'lrjstmSocialLinks' => $this->getSocialLinks(),
             'lrjstmYear' => date('Y'),
         ]);
@@ -174,7 +173,7 @@ class LrjstmThemePlugin extends ThemePlugin
             'lrjstmStats' => $stats,
             'lrjstmLatestArticles' => $latestArticles,
             'lrjstmAuthorUserGroups' => $authorUserGroups,
-            'lrjstmSubjectAreas' => $this->getLines((string) $this->getOption('subjectAreas')),
+            'lrjstmSubjectAreas' => $this->getLines($this->getDisplayOption('subjectAreas')),
         ]);
     }
 
@@ -222,13 +221,37 @@ class LrjstmThemePlugin extends ThemePlugin
     }
 
     /**
+     * Theme option value ready for display.
+     *
+     * OJS falls back to the default when an option is saved empty, so a
+     * single hyphen ("-") is used to hide a section instead.
+     */
+    public function getDisplayOption(string $name): string
+    {
+        $value = trim((string) $this->getOption($name));
+        return $value === '-' ? '' : $value;
+    }
+
+    /**
+     * @return array<string, string> Display values for all text options of this theme
+     */
+    protected function getDisplayOptions(): array
+    {
+        $options = [];
+        foreach (array_keys($this->options) as $name) {
+            $options[$name] = $this->getDisplayOption($name);
+        }
+        return $options;
+    }
+
+    /**
      * @return array<string, string> Network key => URL, only for filled-in options
      */
     protected function getSocialLinks(): array
     {
         $links = [];
         foreach (['facebook', 'instagram', 'linkedin', 'x', 'youtube'] as $network) {
-            $url = trim((string) $this->getOption("{$network}Url"));
+            $url = $this->getDisplayOption("{$network}Url");
             if (preg_match('#^https?://#i', $url)) {
                 $links[$network] = $url;
             }

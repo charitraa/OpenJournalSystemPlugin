@@ -66,8 +66,8 @@
 								{$siteTitle|escape}
 							{/if}
 						</span>
-						{if $currentContext && $activeTheme && $activeTheme->getOption('tagline')}
-							<span class="lr-brand__tagline">{$activeTheme->getOption('tagline')|escape}</span>
+						{if $currentContext && $lrjstmOptions.tagline}
+							<span class="lr-brand__tagline">{$lrjstmOptions.tagline|escape}</span>
 						{/if}
 					</span>
 				</a>
