@@ -27,11 +27,7 @@
 	overflow: hidden;
 	padding: @lr-space-12 0 @lr-space-10;
 	background-color: @lr-navy-800;
-	background-image:
-		linear-gradient(fade(@lr-surface, 4%) 1px, transparent 1px),
-		linear-gradient(90deg, fade(@lr-surface, 4%) 1px, transparent 1px),
-		radial-gradient(ellipse at 85% 20%, fade(@lr-blue-600, 45%) 0%, transparent 55%);
-	background-size: 44px 44px, 44px 44px, 100% 100%;
+	background-image: radial-gradient(ellipse at 85% 20%, fade(@lr-blue-600, 45%) 0%, transparent 55%);
 	color: fade(@lr-surface, 82%);
 
 	@media (min-width: @lr-bp-md) {
@@ -46,22 +42,6 @@
 		bottom: 0;
 		height: 3px;
 		background: linear-gradient(90deg, @lr-red-500 0, @lr-red-500 120px, transparent 120px);
-	}
-}
-
-.lr-hero__art {
-	position: absolute;
-	top: 50%;
-	right: -40px;
-	width: 520px;
-	max-width: 60%;
-	height: auto;
-	color: fade(@lr-surface, 16%);
-	transform: translateY(-50%);
-	pointer-events: none;
-
-	@media (max-width: (@lr-bp-lg - 1)) {
-		display: none;
 	}
 }
 

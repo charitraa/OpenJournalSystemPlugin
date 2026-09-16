@@ -31,20 +31,6 @@
 
 	{* ============ HERO / SEARCH ============ *}
 	<section class="lr-hero" aria-labelledby="lrHeroTitle">
-		<svg class="lr-hero__art" viewBox="0 0 520 420" aria-hidden="true" focusable="false">
-			<g fill="none" stroke="currentColor" stroke-width="1">
-				<path d="M60 300 L180 210 L300 250 L420 120 L480 190" />
-				<path d="M180 210 L230 90 L420 120" />
-				<path d="M300 250 L340 360 L480 190" />
-				<path d="M60 300 L140 380 L340 360" />
-				<path d="M230 90 L110 60 L60 300" />
-			</g>
-			<g fill="currentColor">
-				<circle cx="60" cy="300" r="4" /><circle cx="180" cy="210" r="6" /><circle cx="300" cy="250" r="4" />
-				<circle cx="420" cy="120" r="7" /><circle cx="480" cy="190" r="3" /><circle cx="230" cy="90" r="4" />
-				<circle cx="340" cy="360" r="5" /><circle cx="140" cy="380" r="3" /><circle cx="110" cy="60" r="3" />
-			</g>
-		</svg>
 		<div class="lr-container lr-hero__inner">
 			{if $journalAcronym}
 				<p class="lr-eyebrow lr-eyebrow--inverse">{$journalAcronym|escape}</p>
