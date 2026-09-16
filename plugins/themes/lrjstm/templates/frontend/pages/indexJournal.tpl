@@ -25,16 +25,11 @@
  *}
 {include file="frontend/components/header.tpl" pageTitleTranslated=$currentJournal->getLocalizedName() isFullWidth=true}
 
-{assign var=journalAcronym value=$currentJournal->getLocalizedAcronym()|default:$currentJournal->getLocalizedAbbreviation()}
-
 <div class="page_index_journal lr-home">
 
 	{* ============ HERO / SEARCH ============ *}
 	<section class="lr-hero" aria-labelledby="lrHeroTitle">
 		<div class="lr-container lr-hero__inner">
-			{if $journalAcronym}
-				<p class="lr-eyebrow lr-eyebrow--inverse">{$journalAcronym|escape}</p>
-			{/if}
 			<h2 id="lrHeroTitle" class="lr-hero__title">{$lrjstmOptions.heroTitle|default:$currentJournal->getLocalizedName()|escape}</h2>
 
 			<form class="lr-searchbar lr-hero__search" method="get" action="{url router=PKP\core\PKPApplication::ROUTE_PAGE page="search" op="search"}" role="search">
