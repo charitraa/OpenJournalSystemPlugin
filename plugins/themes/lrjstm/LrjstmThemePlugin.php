@@ -62,7 +62,7 @@ class LrjstmThemePlugin extends ThemePlugin
         $this->modifyStyle('stylesheet', [
             'addLess' => ['styles/index.less'],
             'addLessVariables' => implode("\n", [
-                '@bg-base: #0B2A4A;',
+                '@bg-base: #0B0C4A;',
                 '@primary: #474AFF;',
                 '@text-bg-base: #fff;',
                 '@font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;',
