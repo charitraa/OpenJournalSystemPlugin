@@ -22,16 +22,30 @@
 // -----------------------------------------------------------------
 // Hero
 // -----------------------------------------------------------------
+// Hero ground: the graduation celebration photograph from www.lbef.org, under a navy
+// scrim weighted to the left so the title, search field and advanced-search
+// link keep their contrast. The photo carries the right third.
+.lr-hero-ground(@image) {
+	background-image:
+		radial-gradient(ellipse at 85% 20%, fade(@lr-blue-600, 38%) 0%, transparent 55%),
+		linear-gradient(100deg, @lr-navy-900 0%, fade(@lr-navy-900, 94%) 40%, fade(@lr-navy-800, 78%) 72%, fade(@lr-navy-800, 62%) 100%),
+		url("@{lr-image-path}/@{image}");
+	background-size: auto, auto, cover;
+	background-position: center, center, 50% 42%;
+	background-repeat: no-repeat;
+}
+
 .lr-hero {
 	position: relative;
 	overflow: hidden;
 	padding: @lr-space-12 0 @lr-space-10;
 	background-color: @lr-navy-800;
-	background-image: radial-gradient(ellipse at 85% 20%, fade(@lr-blue-600, 45%) 0%, transparent 55%);
+	.lr-hero-ground("hero-graduation-sm.webp");
 	color: fade(@lr-surface, 82%);
 
 	@media (min-width: @lr-bp-md) {
 		padding: @lr-space-20 0 @lr-space-16;
+		.lr-hero-ground("hero-graduation.webp");
 	}
 
 	&:after {

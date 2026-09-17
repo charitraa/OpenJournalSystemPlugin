@@ -5,18 +5,25 @@
  */
 
 .pkp_structure_footer_wrapper.lr-footer {
-	background: @lr-navy-800;
-	color: fade(@lr-surface, 74%);
+	background-color: @lr-footer-bg;
+	background-image:
+		linear-gradient(fade(@lr-surface, 90%), fade(@lr-surface, 90%)),
+		url("@{lr-image-path}/footer-skyline.webp");
+	background-size: cover;
+	background-position: bottom;
+	background-repeat: no-repeat;
+	border-top: 1px solid @lr-border;
+	color: @lr-text;
 	font-size: @lr-text-sm;
 	line-height: 1.65;
 
 	a {
-		color: fade(@lr-surface, 88%);
+		color: @lr-text;
 		text-decoration: none;
 
 		&:hover,
 		&:focus {
-			color: @lr-surface;
+			color: @lr-blue-700;
 			text-decoration: underline;
 		}
 	}
@@ -53,9 +60,6 @@
 
 .lr-footer__logo {
 	display: inline-block;
-	padding: @lr-space-2 @lr-space-3;
-	border-radius: @lr-radius;
-	background: @lr-surface;
 
 	img {
 		display: block;
@@ -71,7 +75,7 @@
 	font-size: @lr-text-md;
 	font-weight: 600;
 	line-height: 1.35;
-	color: @lr-surface;
+	color: @lr-ink;
 }
 
 .lr-footer__desc,
@@ -83,9 +87,9 @@
 .lr-footer__heading {
 	margin: 0 0 @lr-space-4;
 	padding-bottom: @lr-space-3;
-	border-bottom: 1px solid fade(@lr-surface, 12%);
+	border-bottom: 1px solid @lr-border;
 	.lr-caps();
-	color: @lr-surface;
+	color: @lr-ink;
 }
 
 .lr-footer__contact {
@@ -98,14 +102,14 @@
 	.fa {
 		width: 14px;
 		flex: 0 0 14px;
-		color: fade(@lr-surface, 55%);
+		color: @lr-muted;
 		text-align: center;
 	}
 }
 
 .lr-footer__contact-name {
 	font-weight: 600;
-	color: @lr-surface;
+	color: @lr-ink;
 }
 
 .lr-footer__more {
@@ -128,9 +132,9 @@
 		justify-content: center;
 		width: 36px;
 		height: 36px;
-		border: 1px solid fade(@lr-surface, 18%);
+		border: 1px solid @lr-border-strong;
 		border-radius: 50%;
-		color: @lr-surface;
+		color: @lr-text;
 		transition: background-color @lr-duration @lr-ease, border-color @lr-duration @lr-ease;
 
 		&:hover,
@@ -146,16 +150,16 @@
 // Content from Settings > Website > Appearance > Page Footer
 .lr-footer .pkp_footer_content.lr-footer__custom {
 	padding: @lr-space-10 0;
-	border-top: 1px solid fade(@lr-surface, 12%);
-	color: fade(@lr-surface, 74%);
+	border-top: 1px solid @lr-border;
+	color: @lr-text;
 	text-align: left;
 
 	h1, h2, h3, h4 {
 		margin: 0 0 @lr-space-4;
 		padding-bottom: @lr-space-3;
-		border-bottom: 1px solid fade(@lr-surface, 12%);
+		border-bottom: 1px solid @lr-border;
 		.lr-caps();
-		color: @lr-surface;
+		color: @lr-ink;
 	}
 
 	p {
@@ -201,7 +205,7 @@
 		gap: @lr-space-2 @lr-space-8;
 		margin-top: @lr-space-8;
 		padding-top: @lr-space-5;
-		border-top: 1px solid fade(@lr-surface, 12%);
+		border-top: 1px solid @lr-border;
 		font-size: @lr-text-xs;
 
 		p {
@@ -211,8 +215,8 @@
 }
 
 .lr-footer__bottom {
-	background: @lr-navy-900;
-	border-top: 2px solid @lr-red-500;
+	background: transparent;
+	border-top: 1px solid @lr-border;
 	font-size: @lr-text-xs;
 }
 
@@ -239,8 +243,13 @@
 	padding: 0;
 	list-style: none;
 
+	// The journal's uploaded stylesheet (Settings > Website > Appearance)
+	// paints this block, which would punch a dark patch through the flat
+	// footer colour. Keep it transparent so the footer stays one tone.
 	.pkp_brand_footer {
 		padding: 0;
+		background: transparent;
+		border-top: 0;
 
 		a {
 			display: block;

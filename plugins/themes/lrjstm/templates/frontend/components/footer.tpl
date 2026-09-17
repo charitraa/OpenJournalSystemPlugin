@@ -139,7 +139,7 @@
 				{/if}
 				<li class="pkp_brand_footer">
 					<a href="{url page="about" op="aboutThisPublishingSystem"}">
-						<img alt="{translate key="about.aboutThisPublishingSystem"}" src="{$baseUrl}/templates/images/ojs_brand_white.png" width="92" height="60">
+						<img alt="{translate key="about.aboutThisPublishingSystem"}" src="{$baseUrl}/templates/images/ojs_brand.png" width="92" height="60">
 					</a>
 				</li>
 			</ul>
